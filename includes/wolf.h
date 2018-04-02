@@ -16,7 +16,7 @@
 # include "mlx.h"
 # include <math.h>
 # include <time.h>
-# define WIDTH  3001
+# define WIDTH  3000
 # define HEIGHT 1080
 
 
