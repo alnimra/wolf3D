@@ -53,14 +53,12 @@ void	scenify(t_gl *gl, t_canvas *canvas)
 		{
 			double camera_x = 2 * x / (double)WIDTH - 1;
 			t_2dpt cam_x = (t_2dpt){camera_x, camera_x};
-			// t_2dpt ray_dir = create_3dpt(gl->dir[0] + gl->cam_dir[0] * camera_x, gl->dir[1] + gl->cam_dir[1] * camera_x, 0);
 			t_2dpt ray_dir = gl->dir + (gl->cam_dir * cam_x);
 
 			int map[2] = {(int)gl->pos[0], (int)gl->pos[1]};
 
 			t_2dpt side_dist;
 			t_2dpt delta_dist;
-			// t_2dpt delta_dist = create_3dpt(abs(1/ray_dir[0]), abs(1/ray_dir[1]));
 			delta_dist = abs_2dpt(((t_2dpt){1, 1}) / ray_dir);
 			double perp_wall_dist;
 			int step[2];
@@ -101,6 +99,7 @@ void	scenify(t_gl *gl, t_canvas *canvas)
 				if(gl->map[map[0]][map[1]] > 0)
 					is_contact = 1;
 			}
+
 			if(side == 0)
 				perp_wall_dist = (map[0] - gl->pos[0] + (1 - step[0]) / 2) / ray_dir[0];
 			else
@@ -112,8 +111,5 @@ void	scenify(t_gl *gl, t_canvas *canvas)
 			if(draw_end >= HEIGHT || draw_end < 0) draw_end = HEIGHT - 1;
 				efla_e(canvas, (t_2dpt){x, draw_start}, (t_2dpt){x, draw_end}, select_color(gl, map, side));
 		}
-	// }
-
-
 	mlx_put_image_to_window(gl->lib, gl->surf, canvas->img, 0, 0);
 }
