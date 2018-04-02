@@ -1,4 +1,2 @@
-cp -R srcs sample_files obj miniLibX libft includes backups
-git add backups
-git commit -m"backedup"
-git push
+cp -R * ../$1_
+cd ../$1_ && git add -A && git commit -m"---HistoryUpdated---" && git push
