@@ -31,6 +31,7 @@ void add_sun(t_canvas *canvas)
 			store_pix(canvas, x, y, color);
 	}
 }
+
 void reset_canvas(t_canvas *canvas)
 {
 	int x;
