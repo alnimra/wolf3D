@@ -12,7 +12,7 @@
 
 #include "wolf.h"
 
-void add_sun(t_canvas *canvas)
+void	add_sun(t_canvas *canvas)
 {
 	int sun_width;
 	int y;
@@ -32,7 +32,7 @@ void add_sun(t_canvas *canvas)
 	}
 }
 
-void reset_canvas(t_canvas *canvas)
+void	reset_canvas(t_canvas *canvas)
 {
 	int x;
 	int y;
@@ -56,14 +56,19 @@ void reset_canvas(t_canvas *canvas)
 		x = -1;
 		if ((y % 3) == 0)
 			color += 1;
-		// color = generate_random_hex() * 3;
 		while (++x < WIDTH)
 			store_pix(canvas, x, y, color);
 	}
 }
 
-void put_game_over(t_gl *gl, t_canvas *canvas)
+void	put_game_over(t_gl *gl, t_canvas *canvas)
 {
+	ft_putstr("Player pos: ");
+	ft_putnbr(gl->pos[0]);
+	ft_putchar(' ');
+	ft_putnbr(gl->pos[1]);
+	ft_putchar('\n');
 	reset_canvas(canvas);
-	mlx_string_put(gl->lib, gl->surf, WIDTH / 2, HEIGHT / 2, 0xFFFFFF, "GAME OVER...  >+<");
+	mlx_string_put(gl->lib, gl->surf, WIDTH / 2, HEIGHT / 2, 0xFFFFFF,
+				"GAME OVER...  >+<");
 }

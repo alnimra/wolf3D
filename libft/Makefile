@@ -81,7 +81,6 @@ ft_fst_strchr.c\
 ft_is_max.c\
 ft_atoi_base.c\
 free_array.c\
-ft_atod.c\
 
 all: $(NAME)
 

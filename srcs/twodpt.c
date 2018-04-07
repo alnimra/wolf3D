@@ -28,7 +28,7 @@ double	mag(t_2dpt pt)
 	return (sqrt(squares[0] + squares[1]));
 }
 
-double angle_between(t_2dpt one, t_2dpt two)
+double	angle_between(t_2dpt one, t_2dpt two)
 {
 	return (acos(dot(one, two) / (mag(one) * mag(two))));
 }

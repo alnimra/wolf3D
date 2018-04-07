@@ -20,11 +20,12 @@ t_gl		*create_gl(void *lib, void *surf)
 	tmp->lib = lib;
 	tmp->surf = surf;
 	tmp->trans_speed = 0.15;
-	tmp->ang_speed =  0.08;
+	tmp->ang_speed = 0.08;
 	tmp->pos = (t_2dpt){-1, -1};
 	tmp->dir = (t_2dpt){-1, 0};
 	tmp->cam_dir = (t_2dpt){0, 0.66};
 	tmp->col_score = 100;
+	tmp->d4 = 1.0;
 	return (tmp);
 }
 

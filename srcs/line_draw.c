@@ -26,7 +26,6 @@ void	y_longer(t_canvas *canvas, t_2dpt pt_i, int para[7])
 		while (pt_i[1] <= para[3])
 		{
 			store_pix(canvas, para[6] >> 16, pt_i[1], para[0]);
-			// mlx_pixel_put(gl->lib, gl->surf, para[6] >> 16, pt_i[1], para[0]);
 			para[6] += para[4];
 			++pt_i[1];
 		}
@@ -52,7 +51,6 @@ void	y_not_longer(t_canvas *canvas, t_2dpt pt_i, int para[7])
 		while (pt_i[0] <= para[3])
 		{
 			store_pix(canvas, pt_i[0], para[6] >> 16, para[0]);
-			// mlx_pixel_put(gl->lib, gl->surf, pt_i[0], para[6] >> 16, para[0]);
 			para[6] += para[4];
 			++pt_i[0];
 		}
@@ -63,7 +61,6 @@ void	y_not_longer(t_canvas *canvas, t_2dpt pt_i, int para[7])
 	while (pt_i[0] >= para[3])
 	{
 		store_pix(canvas, pt_i[0], para[6] >> 16, para[0]);
-		// mlx_pixel_put(gl->lib, gl->surf, pt_i[0], para[6] >> 16, para[0]);
 		para[6] -= para[4];
 		--pt_i[0];
 	}

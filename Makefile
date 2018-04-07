@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= wolf3D
+NAME	= wolf3d
 
 # src / obj files
 SRC		= main.c\
@@ -22,6 +22,8 @@ SRC		= main.c\
 		  parse.c\
 		  keys.c\
 		  canvas_draws.c\
+		  parse_2.c\
+		  ray_casting.c\
 
 OBJ		= $(addprefix $(OBJDIR),$(SRC:.c=.o))
 

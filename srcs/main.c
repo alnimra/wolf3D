@@ -11,14 +11,11 @@
 /* ************************************************************************** */
 
 #include "wolf.h"
-#include <stdio.h>
 
-
-
-int expose_handler(t_params *para)
+int		expose_handler(t_params *para)
 {
-	t_gl *	gl;
-	t_canvas *canvas;
+	t_gl		*gl;
+	t_canvas	*canvas;
 
 	gl = para->p1;
 	canvas = para->p2;
@@ -27,15 +24,25 @@ int expose_handler(t_params *para)
 	return (0);
 }
 
-int main(int argc, char **argv)
+int exit_handler(t_params *para)
 {
-	t_gl *	gl;
-	void *	mlx;
-	void *	window;
-	t_canvas *canvas;
-	t_params *para;
+	t_gl		*gl;
+	t_canvas	*canvas;
 
-	if (argc == 2)
+	gl = para->p1;
+	canvas = para->p2;
+	exit(0);
+}
+
+int		main(int argc, char **argv)
+{
+	t_gl		*gl;
+	void		*mlx;
+	void		*window;
+	t_canvas	*canvas;
+	t_params	*para;
+
+	if (argc == 2 || argc == 3)
 	{
 		para = (t_params *)malloc(sizeof(t_params));
 		mlx = mlx_init();
@@ -44,12 +51,12 @@ int main(int argc, char **argv)
 		canvas = create_canvas(gl);
 		para->p1 = gl;
 		para->p2 = canvas;
-		// ft_putstr("hello");
-		// parse_obj_data(gl, read_in(argv[1]));
-		// ft_putendl("Entering Scenify");
+		if (argc == 3 && ft_atoi(argv[2]) == 4)
+			gl->d4 = -1.0;
 		parse_obj_data(gl, read_in(argv[1]));
 		scenify(gl, canvas);
 		mlx_hook(gl->surf, 2, 0, key_handler, para);
+		mlx_hook(gl->surf, 17, 0, exit_handler, para);
 		mlx_expose_hook(gl->surf, expose_handler, para);
 		mlx_loop(gl->lib);
 	}

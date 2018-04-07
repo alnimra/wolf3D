@@ -97,5 +97,5 @@ char			*ft_fst_strchr(const char *s, int c);
 int				max(int a, int b);
 int				ft_atoi_base(char *str, int b);
 void			free_array(void **array);
-double			ft_atod(char* s);
+double			ft_atod(char *s);
 #endif
